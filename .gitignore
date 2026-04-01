@@ -1,24 +1,32 @@
-# Dependências
+# Dependencias
 node_modules/
-npm-debug.log
-yarn-debug.log
-yarn-error.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # Arquivos do sistema
 .DS_Store
 Thumbs.db
+Desktop.ini
 
 # Arquivos de ambiente
 .env
 .env.local
 .env.*.local
 
-# Arquivos de IDE
+# Arquivos de IDE e editor
 .idea/
 .vscode/
 *.sublime-project
 *.sublime-workspace
+*.swp
+*.swo
 
 # Arquivos de build
 dist/
-build/ 
+build/
+.cache/
+
+# Logs
+*.log
