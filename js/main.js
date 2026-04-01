@@ -12,9 +12,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Animacao do menu ao rolar a pagina
 const header = document.querySelector('header');
 let lastScroll = 0;
+
+function atualizarAlturaHeader() {
+    if (header) {
+        document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+    }
+}
+
+atualizarAlturaHeader();
+window.addEventListener('load', atualizarAlturaHeader);
+window.addEventListener('resize', atualizarAlturaHeader);
+
+// Animacao do menu ao rolar a pagina
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
