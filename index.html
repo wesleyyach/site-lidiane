@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lidiane Barreto - Terapeuta Familiar e Psicóloga</title>
+    <meta name="description" content="Lidiane Barreto é Psicóloga Clínica e Terapeuta de Casal e Família, com atendimento online e presencial em Boa Viagem, Recife.">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/jpg" href="img/logoLidiane.jpg">
@@ -27,7 +28,7 @@
         <div class="hero-content">
             <img src="img/fotoLidiane.jpg" alt="Lidiane Barreto" class="profile-img">
             <h1>Lidiane Barreto</h1>
-            <h2>Terapeuta Familiar, de Casal e Psicóloga</h2>
+            <h2>Psicóloga Clínica e Terapeuta de Casal e Família</h2>
             <p>Cuidando da saúde emocional e dos relacionamentos com profissionalismo e dedicação</p>
             <div class="atendimento-tipos">
                 <span class="atendimento-badge"><i class="fas fa-video"></i> Atendimento Online</span>
@@ -97,34 +98,53 @@
                         <p>(81) 98102-4381</p>
                     </div>
                     <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>liditerapia@gmail.com</p>
-                    </div>
-                    <div class="contact-item">
                         <i class="fab fa-instagram"></i>
-                        <p><a href="https://instagram.com/liditerapia" target="_blank">@liditerapia</a></p>
+                        <p><a href="https://instagram.com/liditerapia" target="_blank" rel="noopener noreferrer">@liditerapia</a></p>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <p>R.Fernando Simões Barbosa,<br>
-                        n°22, Edf. Galeria Santo Antônio,<br>
+                        <p>R. Fernando Simões Barbosa,<br>
+                        nº 22, Edf. Galeria Santo Antônio,<br>
                         Boa Viagem, Recife - PE</p>
                     </div>
+                    <div class="contact-map" aria-label="Mapa com a localização do consultório">
+                        <iframe
+                            title="Mapa do consultório de Lidiane Barreto"
+                            src="https://www.google.com/maps?q=R.%20Fernando%20Sim%C3%B5es%20Barbosa%2C%2022%2C%20Boa%20Viagem%2C%20Recife%20-%20PE&z=16&output=embed"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
                 </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Nome" required>
-                    <input type="email" placeholder="Email" required>
-                    <input type="tel" placeholder="Telefone">
-                    <textarea placeholder="Mensagem" required></textarea>
+                <form class="contact-form" id="contact-form">
+                    <input type="text" name="nome" placeholder="Nome" aria-label="Nome" autocomplete="name" required>
+                    <input type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email" required>
+                    <input type="tel" name="telefone" placeholder="Telefone" aria-label="Telefone" autocomplete="tel">
+                    <textarea name="mensagem" placeholder="Mensagem" aria-label="Mensagem" required></textarea>
+
+                    <input type="hidden" name="_subject" value="Nova mensagem do site - Lidiane Barreto">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+
                     <button type="submit" class="cta-button">Enviar Mensagem</button>
                 </form>
+
+                <div id="popup-sucesso" class="popup-sucesso">
+                    <div class="popup-box">
+                        <span id="popup-fechar" class="popup-fechar">&times;</span>
+                        <div class="popup-icone">&#10003;</div>
+                        <h3>Mensagem enviada com sucesso!</h3>
+                        <p>Fique no aguardo, em breve entraremos em contato.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Lidiane Barreto - Todos os direitos reservados</p>
+            <p>&copy; 2026 Lidiane Barreto - Todos os direitos reservados</p>
         </div>
     </footer>
     <script src="js/main.js"></script>

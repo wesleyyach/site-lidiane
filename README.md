@@ -16,7 +16,6 @@ Site institucional para Lidiane Barreto, Terapeuta Familiar, de Casal e Psicólo
 - CSS3
 - JavaScript
 - Font Awesome (ícones)
-- Google Fonts
 
 ## Estrutura do Projeto
 
@@ -27,8 +26,9 @@ SiteLidiane/
 ├── js/
 │   └── main.js
 ├── img/
+│   ├── fotoLidiane.jpg
 │   ├── logoLidiane.jpg
-│   └── fotoLidiane.jpg
+│   └── psicologos-para-terapia-de-casal-1024x682.jpg
 ├── index.html
 └── README.md
 ```
@@ -47,4 +47,4 @@ SiteLidiane/
 
 ## Licença
 
-Todos os direitos reservados © 2025 Lidiane Barreto 
+Todos os direitos reservados © 2025 Lidiane Barreto

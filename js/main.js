@@ -1,4 +1,4 @@
-// Efeito de scroll suave para links de navegação
+// Efeito de scroll suave para links de navegacao
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -12,42 +12,41 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Animação do menu ao rolar a página
+// Animacao do menu ao rolar a pagina
 const header = document.querySelector('header');
 let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     if (currentScroll <= 0) {
         header.classList.remove('scroll-up');
         return;
     }
-    
+
     if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
-        // Scroll Down
         header.classList.remove('scroll-up');
         header.classList.add('scroll-down');
     } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
-        // Scroll Up
         header.classList.remove('scroll-down');
         header.classList.add('scroll-up');
     }
+
     lastScroll = currentScroll;
 });
 
-// Animação de entrada dos elementos
+// Animacao de entrada dos elementos
 const observerOptions = {
     root: null,
     rootMargin: '0px',
     threshold: 0.1
 };
 
-const observer = new IntersectionObserver((entries, observer) => {
+const observer = new IntersectionObserver((entries, currentObserver) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('animate');
-            observer.unobserve(entry.target);
+            currentObserver.unobserve(entry.target);
         }
     });
 }, observerOptions);
@@ -58,53 +57,95 @@ document.querySelectorAll('.service-card, .atendimento-card, .about-text, .conta
     observer.observe(el);
 });
 
-// Formulário de contato
-const contactForm = document.querySelector('.contact-form');
+// Popup
+const popup = document.getElementById('popup-sucesso');
+const popupFechar = document.getElementById('popup-fechar');
+
+function abrirPopup() {
+    if (popup) {
+        popup.classList.add('ativo');
+    }
+}
+
+function fecharPopup() {
+    if (popup) {
+        popup.classList.remove('ativo');
+    }
+}
+
+if (popupFechar) {
+    popupFechar.addEventListener('click', fecharPopup);
+}
+
+if (popup) {
+    popup.addEventListener('click', function (e) {
+        if (e.target === popup) {
+            fecharPopup();
+        }
+    });
+}
+
+// Formulario com FormSubmit AJAX
+const contactForm = document.getElementById('contact-form');
+
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function (e) {
         e.preventDefault();
-        
-        // Animação de envio
+
         const submitButton = this.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
+
         submitButton.textContent = 'Enviando...';
         submitButton.disabled = true;
-        
-        // Simulação de envio (substitua por sua lógica de envio real)
-        setTimeout(() => {
-            submitButton.textContent = 'Mensagem Enviada!';
-            submitButton.style.backgroundColor = '#27ae60';
-            
-            // Reset do formulário
-            this.reset();
-            
-            // Restauração do botão após 3 segundos
-            setTimeout(() => {
-                submitButton.textContent = originalText;
-                submitButton.style.backgroundColor = '';
-                submitButton.disabled = false;
-            }, 3000);
-        }, 1500);
+
+        const formData = new FormData(this);
+
+        try {
+            const response = await fetch('https://formsubmit.co/ajax/liditerapia@gmail.com', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    Accept: 'application/json'
+                }
+            });
+
+            const data = await response.json();
+
+            if (data.success === 'true' || data.success === true) {
+                this.reset();
+                abrirPopup();
+            } else {
+                alert('Não foi possível enviar sua mensagem. Tente novamente.');
+            }
+        } catch (error) {
+            alert('Não foi possível enviar sua mensagem. Tente novamente.');
+        } finally {
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        }
     });
 }
 
 // Contador de caracteres para o textarea
 const textarea = document.querySelector('textarea');
+
 if (textarea) {
     const maxLength = 500;
+    textarea.setAttribute('maxlength', maxLength);
+
     const counter = document.createElement('div');
     counter.className = 'char-counter';
     counter.textContent = `0/${maxLength}`;
     textarea.parentNode.appendChild(counter);
 
-    textarea.addEventListener('input', function() {
+    textarea.addEventListener('input', function () {
         const remaining = maxLength - this.value.length;
         counter.textContent = `${this.value.length}/${maxLength}`;
-        
+
         if (remaining < 50) {
             counter.style.color = '#e74c3c';
         } else {
             counter.style.color = '#666';
         }
     });
-} 
+}

@@ -9,7 +9,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f0f0f0; /* Estilo de teste */
+    background-color: #f0f0f0;
 }
 
 .container {
@@ -79,7 +79,8 @@ nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
+                url('../img/psicologos-para-terapia-de-casal-1024x682.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -247,6 +248,21 @@ section h2 {
     color: #3498db;
 }
 
+.contact-map {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    background: #fff;
+}
+
+.contact-map iframe {
+    display: block;
+    width: 100%;
+    height: 260px;
+    border: 0;
+}
+
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -377,6 +393,83 @@ footer {
     cursor: not-allowed;
 }
 
+.popup-sucesso {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s ease;
+    z-index: 9999;
+}
+
+.popup-sucesso.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-box {
+    background: #ffffff;
+    width: 100%;
+    max-width: 430px;
+    border-radius: 22px;
+    padding: 38px 28px 30px;
+    text-align: center;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.22);
+    position: relative;
+    transform: translateY(20px) scale(0.96);
+    transition: all 0.35s ease;
+}
+
+.popup-sucesso.ativo .popup-box {
+    transform: translateY(0) scale(1);
+}
+
+.popup-fechar {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 28px;
+    color: #7f8c8d;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.popup-fechar:hover {
+    color: #2c3e50;
+}
+
+.popup-icone {
+    width: 78px;
+    height: 78px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d4f7df, #b8efd0);
+    color: #27ae60;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(39, 174, 96, 0.18);
+}
+
+.popup-box h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 12px;
+}
+
+.popup-box p {
+    font-size: 1rem;
+    color: #5f6b7a;
+    line-height: 1.6;
+    margin: 0;
+}
 /* Responsividade */
 @media (max-width: 768px) {
     nav {
