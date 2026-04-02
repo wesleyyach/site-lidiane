@@ -26,7 +26,6 @@ window.addEventListener('load', atualizarAlturaHeader);
 window.addEventListener('resize', atualizarAlturaHeader);
 
 // Animacao do menu ao rolar a pagina
-
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
 
@@ -96,6 +95,10 @@ if (popup) {
     });
 }
 
+function mostrarErroEnvio(message) {
+    alert(message || 'Nao foi possivel enviar sua mensagem. Tente novamente mais tarde.');
+}
+
 // Formulario com FormSubmit AJAX
 const contactForm = document.getElementById('contact-form');
 
@@ -112,7 +115,7 @@ if (contactForm) {
         const formData = new FormData(this);
 
         try {
-            const response = await fetch('https://formsubmit.co/ajax/liditerapia@gmail.com', {
+            const response = await fetch('https://formsubmit.co/ajax/liditerapia.a@gmail.com', {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -126,10 +129,13 @@ if (contactForm) {
                 this.reset();
                 abrirPopup();
             } else {
-                alert('Não foi possível enviar sua mensagem. Tente novamente.');
+                const mensagemErro = data.message
+                    ? `Nao foi possivel enviar o formulario: ${data.message}`
+                    : 'Nao foi possivel enviar sua mensagem. Tente novamente mais tarde.';
+                mostrarErroEnvio(mensagemErro);
             }
         } catch (error) {
-            alert('Não foi possível enviar sua mensagem. Tente novamente.');
+            mostrarErroEnvio('Nao foi possivel enviar sua mensagem. Tente novamente mais tarde.');
         } finally {
             submitButton.textContent = originalText;
             submitButton.disabled = false;
