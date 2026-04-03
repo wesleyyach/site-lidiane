@@ -648,98 +648,183 @@ footer {
 }
 /* Responsividade */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
     nav {
         flex-direction: column;
         text-align: center;
-        padding: 0.5rem;
+        padding: 0.7rem 1rem 0.8rem;
     }
 
     nav ul {
-        margin-top: 0.5rem;
+        margin-top: 0.7rem;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0.5rem;
+        gap: 0.6rem;
     }
 
     nav ul li {
-        margin: 0 0.5rem;
+        margin: 0;
+    }
+
+    nav ul li a {
+        display: inline-flex;
+        padding: 0.45rem 0.9rem;
+        border-radius: 999px;
+        background: #f5f8fb;
+        font-size: 0.9rem;
     }
 
     .logo-img {
-        height: 60px; /* Logo menor em mobile */
+        height: 58px;
     }
 
     .hero {
-        padding-top: calc(var(--header-height) + 24px);
-        min-height: 100vh;
+        min-height: 100svh;
+        padding-top: calc(var(--header-height) + 20px);
+        padding-bottom: 32px;
+    }
+
+    .hero-content {
+        padding: 0 16px;
     }
 
     .hero h1 {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
+        font-size: 2.25rem;
+        line-height: 1.1;
+        margin-bottom: 0.75rem;
     }
 
     .hero h2 {
-        font-size: 1.3rem;
+        font-size: 1.15rem;
+        line-height: 1.45;
         margin-bottom: 1rem;
     }
 
     .hero p {
         font-size: 1rem;
+        line-height: 1.7;
         margin-bottom: 1.5rem;
     }
 
     .profile-img {
-        width: 150px;
-        height: 150px;
-        margin: 1rem 0;
+        width: 145px;
+        height: 145px;
+        margin: 0 0 1.4rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        max-width: 340px;
+        text-align: center;
     }
 
     .atendimento-tipos {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        width: 100%;
     }
 
     .atendimento-badge {
-        width: 100%;
-        max-width: 250px;
+        flex: 1 1 160px;
         justify-content: center;
         font-size: 0.9rem;
+        padding: 0.7rem 1rem;
+    }
+
+    .about-text {
+        text-align: left;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    .atendimento-info {
+        margin-top: 2.25rem;
+    }
+
+    .services-grid,
+    .atendimento-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
     }
 
     .contact-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.75rem;
     }
 
-    .service-card, .atendimento-card {
+    .service-card,
+    .atendimento-card {
         padding: 1.5rem;
+        border-radius: 20px;
     }
 
-    .service-card i, .atendimento-card i {
+    .service-card i,
+    .atendimento-card i {
         font-size: 2rem;
     }
 
-    .service-card h3, .atendimento-card h4 {
+    .service-card h3,
+    .atendimento-card h4 {
         font-size: 1.2rem;
+    }
+
+    .contact-info {
+        gap: 1.2rem;
+    }
+
+    .contact-item {
+        align-items: flex-start;
+    }
+
+    .contact-item p {
+        font-size: 0.98rem;
+        line-height: 1.6;
+    }
+
+    .contact-map iframe {
+        height: 230px;
     }
 
     .contact-form input:not([type="radio"]),
     .contact-form textarea {
-        font-size: 16px; /* Evita zoom automático em iOS */
+        font-size: 16px;
     }
 
     .contact-form {
         padding: 1.5rem;
+        border-radius: 22px;
+        gap: 1.35rem;
     }
 
     .form-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .form-header h3 {
         font-size: 1.5rem;
+    }
+
+    .form-header p {
+        line-height: 1.6;
+    }
+
+    .choice-options {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .choice-pill {
+        min-height: 52px;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.35;
     }
 
     section {
@@ -754,26 +839,50 @@ footer {
 
 /* Ajustes para telas muito pequenas */
 @media (max-width: 480px) {
+    nav ul {
+        gap: 0.45rem;
+    }
+
+    nav ul li a {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.84rem;
+    }
+
     .hero h1 {
-        font-size: 1.8rem;
+        font-size: 1.95rem;
     }
 
     .hero h2 {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
 
     .profile-img {
-        width: 120px;
-        height: 120px;
+        width: 128px;
+        height: 128px;
     }
 
     .atendimento-badge {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
+        flex-basis: 100%;
+        font-size: 0.88rem;
+        padding: 0.65rem 0.9rem;
     }
 
-    .service-card, .atendimento-card {
-        padding: 1rem;
+    .service-card,
+    .atendimento-card {
+        padding: 1.35rem 1.2rem;
+    }
+
+    .contact-form {
+        padding: 1.25rem;
+    }
+
+    .choice-options {
+        grid-template-columns: 1fr;
+    }
+
+    .choice-pill {
+        justify-content: flex-start;
+        padding: 0.95rem 1rem;
     }
 }
 
