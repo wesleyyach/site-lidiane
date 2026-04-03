@@ -107,12 +107,21 @@ if (contactForm) {
         e.preventDefault();
 
         const submitButton = this.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
+        const originalButtonContent = submitButton.innerHTML;
 
         submitButton.textContent = 'Enviando...';
         submitButton.disabled = true;
 
-        const formData = new FormData(this);
+        const formData = new FormData();
+        formData.append('Nome completo', this.elements.nome.value.trim());
+        formData.append('email', this.elements.email.value.trim());
+        formData.append('Telefone / WhatsApp', this.elements.telefone.value.trim() || 'Nao informado');
+        formData.append('Preferencia de atendimento', this.elements.modalidade_atendimento.value);
+        formData.append('Tipo de terapia', this.elements.tipo_terapia.value);
+        formData.append('Mensagem', this.elements.mensagem.value.trim());
+        formData.append('_subject', 'Nova solicitacao de agendamento - Site Lidiane Barreto');
+        formData.append('_template', 'table');
+        formData.append('_captcha', 'false');
 
         try {
             const response = await fetch('https://formsubmit.co/ajax/liditerapia.a@gmail.com', {
@@ -137,7 +146,7 @@ if (contactForm) {
         } catch (error) {
             mostrarErroEnvio('Nao foi possivel enviar sua mensagem. Tente novamente mais tarde.');
         } finally {
-            submitButton.textContent = originalText;
+            submitButton.innerHTML = originalButtonContent;
             submitButton.disabled = false;
         }
     });

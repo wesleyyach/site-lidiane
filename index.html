@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lidiane Barreto - Terapeuta Familiar e Psicóloga</title>
     <meta name="description" content="Lidiane Barreto é Psicóloga Clínica e Terapeuta de Casal e Família, com atendimento online e presencial em Boa Viagem, Recife.">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css?v=20260403-3">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/jpg" href="img/logoLidiane.jpg">
 </head>
@@ -43,7 +43,7 @@
             <h2>Sobre Mim</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Sou Lidiane Barreto, profissional dedicada ao cuidado da saúde mental e dos relacionamentos. Com formação em Psicologia e especialização em Terapia Familiar e de Casal, ofereço um espaço seguro e acolhedor para o desenvolvimento pessoal e a resolução de conflitos.</p>
+                    <p>Sou Lidiane Barreto, profissional dedicada ao cuidado da saúde mental e dos relacionamentos. Graduada em Psicologia e em Enfermagem, pós-graduada em Terapia Sistêmica com Casais e Famílias, escritora, com formação em TCC, Terapia dos Esquemas, Terapia dos Esquemas para Casais e TCC para Casais. Atuo com atendimentos de adultos, casais e famílias, oferecendo um espaço seguro e acolhedor para o desenvolvimento pessoal e a resolução de conflitos.</p>
                     <p>Minha abordagem é baseada no respeito, empatia e profissionalismo, buscando sempre o melhor para meus pacientes e suas famílias.</p>
                     <div class="atendimento-info">
                         <h3>Modalidades de Atendimento</h3>
@@ -118,16 +118,84 @@
                     </div>
                 </div>
                 <form class="contact-form" id="contact-form">
-                    <input type="text" name="nome" placeholder="Nome" aria-label="Nome" autocomplete="name" required>
-                    <input type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email" required>
-                    <input type="tel" name="telefone" placeholder="Telefone" aria-label="Telefone" autocomplete="tel">
-                    <textarea name="mensagem" placeholder="Mensagem" aria-label="Mensagem" required></textarea>
+                    <div class="form-header">
+                        <span class="form-tag">Agendamento</span>
+                        <h3>Envie sua mensagem</h3>
+                        <p>Compartilhe suas preferencias de atendimento e a terapia que voce procura.</p>
+                    </div>
 
-                    <input type="hidden" name="_subject" value="Nova mensagem do site - Lidiane Barreto">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nome">Nome completo</label>
+                            <input type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="seuemail@email.com" autocomplete="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="telefone">Telefone / WhatsApp</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="(81) 99999-9999" autocomplete="tel">
+                        </div>
+                    </div>
+
+                    <fieldset class="form-choice-group">
+                        <legend>Como prefere o atendimento?</legend>
+                        <div class="choice-options">
+                            <label class="choice-card">
+                                <input type="radio" name="modalidade_atendimento" value="On-line" required>
+                                <span class="choice-pill"><i class="fas fa-video" aria-hidden="true"></i> On-line</span>
+                            </label>
+
+                            <label class="choice-card">
+                                <input type="radio" name="modalidade_atendimento" value="Presencial">
+                                <span class="choice-pill"><i class="fas fa-user" aria-hidden="true"></i> Presencial</span>
+                            </label>
+
+                            <label class="choice-card">
+                                <input type="radio" name="modalidade_atendimento" value="Ainda nao sei">
+                                <span class="choice-pill"><i class="fas fa-question-circle" aria-hidden="true"></i> Ainda nao sei</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-choice-group">
+                        <legend>Qual terapia voce precisa?</legend>
+                        <div class="choice-options">
+                            <label class="choice-card">
+                                <input type="radio" name="tipo_terapia" value="Adulto" required>
+                                <span class="choice-pill"><i class="fas fa-brain" aria-hidden="true"></i> Individual</span>
+                            </label>
+
+                            <label class="choice-card">
+                                <input type="radio" name="tipo_terapia" value="Casal">
+                                <span class="choice-pill"><i class="fas fa-heart" aria-hidden="true"></i> Casal</span>
+                            </label>
+
+                            <label class="choice-card">
+                                <input type="radio" name="tipo_terapia" value="Familiar">
+                                <span class="choice-pill"><i class="fas fa-users" aria-hidden="true"></i> Familiar</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" placeholder="Conte brevemente como posso te ajudar" required></textarea>
+                    </div>
+
+                    <input type="hidden" name="_subject" value="Nova solicitacao de agendamento - Site Lidiane Barreto">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_captcha" value="false">
 
-                    <button type="submit" class="cta-button">Enviar Mensagem</button>
+                    <button type="submit" class="cta-button form-submit">
+                        Enviar Mensagem
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                    </button>
                 </form>
 
                 <div id="popup-sucesso" class="popup-sucesso">
@@ -147,6 +215,6 @@
             <p>&copy; 2026 Lidiane Barreto - Todos os direitos reservados</p>
         </div>
     </footer>
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=20260403-2"></script>
 </body>
 </html>
